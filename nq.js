@@ -6,12 +6,20 @@
     return object && typeof object === 'object' && object.nodeType === 1 && typeof object.nodeName === 'string' || isDocument(object);
   }
 
-  function isArray (object){
-    return Object.prototype.toString.call(object) === '[object Array]';
+  function isString (object){
+    return Object.prototype.toString.call(object) === '[object String]';
+  }
+
+  function isObject (object){
+    return Object.prototype.toString.call(object) === '[object Object]';
   }
 
   function isFunction (object){
     return Object.prototype.toString.call(object) === '[object Function]';
+  }
+
+  function isArray (object){
+    return Object.prototype.toString.call(object) === '[object Array]';
   }
 
   function isString (object){
@@ -156,7 +164,7 @@
 
     index : function (select){
       var Index
-      this.map(function(dom, index){
+      this.map(function (dom, index){
         if(dom == select) return Index = index
       })
       return Index
@@ -174,7 +182,34 @@
       for (var key in object) {
         nq.fn[key] = object[key]
       }
+    },
+
+    css : function (object,value){
+      if (isString(object)) {
+        this.map(function(dom) {
+          if (dom.style.hasOwnProperty(object)) {
+            dom.style[object] = value
+          } else {
+            console.error('css没有' + object + '的属性');
+          }
+        })
+      }
+
+      if (isObject(object)) {
+        this.map(function (dom){
+          for (var key in object) {
+            if (dom.style.hasOwnProperty(key)) {
+              dom.style[key] = object[key]
+            }else {
+              console.error('css没有' + key +'的属性');
+            }
+          }
+        })
+      }
+
+      return init(this.dom)
     }
+
   }
 
   window.$  = select
