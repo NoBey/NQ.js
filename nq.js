@@ -155,11 +155,11 @@
     },
 
     index : function (select){
-      var index
+      var Index
       this.map(function(dom, index){
         if(dom == select) return Index = index
       })
-      return index
+      return Index
     },
 
     eq : function (index){
@@ -175,9 +175,7 @@
         nq.fn[key] = object[key]
       }
     }
-
   }
-
 
   window.$  = select
 
