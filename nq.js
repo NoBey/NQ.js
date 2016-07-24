@@ -84,7 +84,6 @@
 
     if (isArray(Dom)) {
       map(Dom, function(nodeList) {
-        console.log(nodeList.querySelectorAll(select));
         map(nodeList.querySelectorAll(select), function(dom) {
           arg.push(dom)
         })
@@ -112,16 +111,11 @@
   function init (dom, select){
     var NQ,
         dom = dom
-    if (isNodeList(dom)){
-      dom = noteToArray(dom)
-    }
-    if (isDocument(dom)){
-      dom = [dom]
-    }
+    if (isNodeList(dom)) dom = noteToArray(dom)
+    if (isDocument(dom)) dom = [dom]
+    if (isDom(dom)) dom = [dom]
     NQ = new nq(dom)
-    if (select){
-      NQ.select = select
-    }
+    if (select) NQ.select = select
     return NQ
   }
 
@@ -163,7 +157,7 @@
     },
 
     index : function (select){
-      var Index
+      var Index = -1
       this.map(function (dom, index){
         if(dom == select) return Index = index
       })
@@ -212,11 +206,14 @@
 
   }
 
-  window.$  = select
+
+
+
 
   var $ = select
   $.a = 11
   $.fn = nq.fn
+  $.init = init
   $.extend = function (object){
     for (var key in object) {
       select.prototype[key] = object[key]
@@ -224,4 +221,5 @@
   }
   nq.prototype = nq.fn
 
+  window.$  = select
 })(window)
