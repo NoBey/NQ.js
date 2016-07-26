@@ -11,6 +11,7 @@ function(a, b) {
 
 
 
+
 function oo(){
   var ss = false
   var t=setTimeout("timer(ss)",1000)
@@ -25,4 +26,9 @@ function oo(){
   //   console.log(ss)
   // }
   return ss
+}
+
+function ss (dd){
+  this.a = dd
+  this.b = () => this
 }
