@@ -2,9 +2,9 @@
 
 function ajax(options){
   this.req = new Request(options.url)
-  req.method = options.method.toLocaleUpperCase()
+  req.method = options.method
   this.method = method => {
-    this.req.method = method.toLocaleUpperCase()
+    this.req.method = method
     return this
   }
 
@@ -12,6 +12,8 @@ function ajax(options){
     Object.keys(options.headers).map(key => this.req.headers.set(key, options.headers[key]))
     return this
   }
+
+
 
   this.success = callback => {
     var err = this.err || null
@@ -63,6 +65,7 @@ req = new Request('http://127.0.0.1:3000', {
   method: 'POST',
   mode: "cors"
 })
+
 req.headers.set("Content-Type","application/x-www-form-urlencoded")
 fetch(req)
 
