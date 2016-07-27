@@ -37,22 +37,46 @@ ajaxlist = {
     options.error = err || null
     return new ajax(options)
   },
+  post : (url, data, success, err) => {
+
+  }
 }
 
 })($)
 
-
-fetch('http://www.w3school.com.cn/jquery/test1.txt',
-{
+// function map (array, callback){
+//   return Object.keys(array).map(callback)
+//
+// }
+// function isObject (object){
+//   return Object.prototype.toString.call(object) === '[object Object]';
+// }
+//
+//
+// function JsonToForm(json) {
+//   var tmp = {}
+//   map(json, val => {
+//     if(isObject(val))
+//   })
+// }
+req = new Request('http://127.0.0.1:3000', {
   method: 'POST',
-  mode: 'no-cors'
+  mode: "cors"
 })
-.then(function(res) {
- console.log(res);
- return res.text()
-})
-.then(json => console.log(json)).catch(e => console.error('error'));
+req.headers.set("Content-Type","application/x-www-form-urlencoded")
+fetch(req)
 
+// fetch('http://127.0.0.1:3000',
+// {
+//   method: 'POST',
+//   mode: 'no-cors'
+// })
+// .then(function(res) {
+//  console.log(res);
+//  return res.text()
+// })
+// .then(json => console.log(json)).catch(e => console.error('error'));
+//
 
 // xhr.send(null);//  http://www.w3school.com.cn/jquery/test1.txt
 // http://apis.baidu.com/apistore/mobilenumber/mobilenumber
