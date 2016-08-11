@@ -2,7 +2,7 @@
   "name": "NQ",
   "version": "1.0.0",
   "description": "仅供学习  NQ.js  基础dom操作库 模块化开发 es6 方 开发中",
-  "main": "index.js",
+  "main": "build/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

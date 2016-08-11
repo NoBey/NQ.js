@@ -12,7 +12,7 @@ module.exports = {
   //输出的文件名 合并以后的js会命名为bundle.js
   output: {
     path: BUILD_PATH,
-    filename: 'bundle.js'
+    filename: 'main.js'
     // filename: 'style.css'
   },
   //添加我们的插件 会自动生成一个html文件
