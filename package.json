@@ -1,6 +1,6 @@
 {
-  "name": "NQ-core",
-  "version": "1.0.1",
+  "name": "nq-core",
+  "version": "1.0.2",
   "description": "仅供学习  NQ.js  基础dom操作库 模块化开发 es6 方 开发中",
   "main": "build/main.js",
   "scripts": {
